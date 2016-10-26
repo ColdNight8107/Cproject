@@ -5,18 +5,26 @@
 輸出說明
 不夠顯示Ｎ，並計算不夠多少錢。
 如果夠則顯示Ｙ。*/
-int main(){
+int main(int argc, char *argv[]){
 	
-	int n,i,p,a[n],sum=0;
+	int n,i,p,sum=0;
 	 
 	scanf("%d",&p);
 	scanf("%d",&n);
-	scanf("%d",&a[n-1]);
 	
-	for(i=0;i<=n-1;i++) sum+=a[i];
+	int a[n];//先宣告完N再宣告陣列，不然N為NULL 
 	
-	if(sum<p) printf("N%d",p-sum);
-	else printf("Y"); 
+	for(i=0;i<n;i++){
+	  scanf("%d",&a[i]);
+	  sum+=a[i];
+    }
+
+	if(sum<=p){
+	  printf("Y");
+	}
+	else{
+	  printf("N%d",sum-p);
+	}
 	
 	system("PAUSE");
 	return 0;
